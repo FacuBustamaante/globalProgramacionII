@@ -1,5 +1,6 @@
 package Entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Empresa extends Base {
@@ -12,6 +13,7 @@ public class Empresa extends Base {
         this.nombre = nombre;
         this.razonSocial = razonSocial;
         this.cuil = cuil;
+        this.sucursales = new ArrayList<>();
     }
 
     public String getNombre() {

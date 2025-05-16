@@ -1,5 +1,6 @@
 package Entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Domicilio extends Base {
@@ -16,6 +17,8 @@ public class Domicilio extends Base {
         this.numero = numero;
         this.cp = cp;
         this.localidad = localidad;
+        this.pedidos = new ArrayList<>();
+        this.clientes = new ArrayList<>();
     }
 
     public String getCalle() {
@@ -48,5 +51,14 @@ public class Domicilio extends Base {
 
     public void setLocalidad(Localidad localidad) {
         this.localidad = localidad;
+    }
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+    public List<Cliente> getClientes() {
+        return clientes;
     }
 }
