@@ -1,5 +1,5 @@
 package Entities;
 
-public class Imagen {
+public class Imagen extends Base {
     private String denominacion;
 }

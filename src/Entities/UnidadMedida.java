@@ -1,5 +1,5 @@
 package Entities;
 
-public class UnidadMedida {
+public class UnidadMedida extends Base{
     private String denominacion;
 }

@@ -4,7 +4,7 @@ import Enums.FormaPago;
 
 import java.time.LocalDate;
 
-public class Factura {
+public class Factura extends Base {
     private LocalDate fechaFacturacion;
     private int mpPaymentId;
     private int mpMerchantOrderId;

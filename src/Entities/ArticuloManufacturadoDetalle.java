@@ -1,5 +1,5 @@
 package Entities;
 
-public class ArticuloManufacturadoDetalle {
+public class ArticuloManufacturadoDetalle extends Base {
     private int cantidad;
 }
