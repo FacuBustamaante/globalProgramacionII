@@ -7,6 +7,8 @@ public class Categoria extends Base {
     private String denominacion;
     private List<Sucursal> sucursal;
     private List<Articulo> articulos;
+    private ArrayList<Categoria> subcategorias;
+    private Categoria padre;
 
     public Categoria() {}
 
@@ -38,5 +40,26 @@ public class Categoria extends Base {
 
     public void setArticulos(List<Articulo> articulos) {
         this.articulos = articulos;
+    }
+
+    public Categoria getPadre() {
+        return padre;
+    }
+
+    public void setPadre(Categoria padre) {
+        this.padre = padre;
+    }
+
+    public ArrayList<Categoria> getSubcategorias() {
+        return subcategorias;
+    }
+
+    public void setSubcategorias(ArrayList<Categoria> subcategorias) {
+        this.subcategorias = subcategorias;
+    }
+
+    public void agregarSubcategoria(Categoria subcategoria) {
+        subcategorias.add(subcategoria);
+        subcategoria.setPadre(this);
     }
 }
