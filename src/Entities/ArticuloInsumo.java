@@ -1,14 +1,15 @@
 package Entities;
 
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class ArticuloInsumo extends Articulo {
     private Double precioCompra;
     private int stockActual;
     private int stockMaximo;
     private boolean esParaElaborar;
-    private List<ArticuloManufacturadoDetalle> articuloManufacturadoDetalles;
+    private ArrayList<ArticuloManufacturadoDetalle> articuloManufacturadoDetalles = new ArrayList<>();
+    private ArrayList<Categoria> categorias = new ArrayList<>();
 
     public ArticuloInsumo() {}
 
@@ -18,7 +19,6 @@ public class ArticuloInsumo extends Articulo {
         this.stockActual = stockActual;
         this.stockMaximo = stockMaximo;
         this.esParaElaborar = esParaElaborar;
-        this.articuloManufacturadoDetalles = new ArrayList<>();
     }
 
     public Double getPrecioCompra() {
@@ -52,10 +52,18 @@ public class ArticuloInsumo extends Articulo {
     public void setEsParaElaborar(boolean esParaElaborar) {
         this.esParaElaborar = esParaElaborar;
     }
-    public List<ArticuloManufacturadoDetalle> getArticuloManufacturadoDetalles() {
+    public ArrayList<ArticuloManufacturadoDetalle> getArticuloManufacturadoDetalles() {
         return articuloManufacturadoDetalles;
     }
-    public void setArticuloManufacturadoDetalles(List<ArticuloManufacturadoDetalle> articuloManufacturadoDetalles) {
-        this.articuloManufacturadoDetalles = articuloManufacturadoDetalles;
+    public void setArticuloManufacturadoDetalles(ArticuloManufacturadoDetalle a) {
+        this.articuloManufacturadoDetalles.add(a);
+    }
+
+    public ArrayList<Categoria> getCategoria() {
+        return categorias;
+    }
+
+    public void agregarCategoria(Categoria c) {
+        this.categorias.add(c);
     }
 }

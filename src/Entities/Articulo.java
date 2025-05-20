@@ -1,14 +1,14 @@
 package Entities;
 
+
 import java.util.ArrayList;
-import java.util.List;
 
 abstract class Articulo extends Base {
     protected String denominacion;
     protected double precioVenta;
-    protected Imagen imagen;
+    protected ArrayList<Imagen> imagenenes;
     protected UnidadMedida unidadMedida;
-    protected List<Promocion> promociones;
+    protected ArrayList<Promocion> promociones = new ArrayList<>();
 
     public Articulo(){}
 
@@ -17,14 +17,7 @@ abstract class Articulo extends Base {
         this.precioVenta = precioVenta;
     }
 
-    public Articulo(String denominacion, double precioVenta, Imagen imagen, UnidadMedida unidadMedida){
-        super();
-        this.denominacion = denominacion;
-        this.precioVenta = precioVenta;
-        this.imagen = imagen;
-        this.unidadMedida = unidadMedida;
-        this.promociones = new ArrayList<>();
-    }
+
 
     public String getDenominacion() {
         return denominacion;
@@ -38,11 +31,11 @@ abstract class Articulo extends Base {
     public void setPrecioVenta(double precioVenta) {
         this.precioVenta = precioVenta;
     }
-    public Imagen getImagen() {
-        return imagen;
+    public ArrayList<Imagen> getImagen() {
+        return imagenenes;
     }
-    public void setImagen(Imagen imagen) {
-        this.imagen = imagen;
+    public void agregarImagen(Imagen i) {
+        this.imagenenes.add(i);
     }
     public UnidadMedida getUnidadMedida() {
         return unidadMedida;
@@ -50,10 +43,10 @@ abstract class Articulo extends Base {
     public void setUnidadMedida(UnidadMedida unidadMedida) {
         this.unidadMedida = unidadMedida;
     }
-    public List<Promocion> getPromociones() {
+    public ArrayList<Promocion> getPromociones() {
         return promociones;
     }
-    public void setPromociones(List<Promocion> promociones) {
-        this.promociones = promociones;
+    public void agregarPromociones(Promocion p) {
+        this.promociones.add(p);
     }
 }

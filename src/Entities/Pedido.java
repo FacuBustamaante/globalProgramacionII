@@ -18,11 +18,13 @@ public class Pedido extends Base {
     private FormaPago formaPago;
     private LocalDate fechaPedido;
     private Factura factura;
-    private List<DetallePedido> detallesPedido;
+    private Domicilio domicilio;
+    private Sucursal sucursal;
+    private ArrayList<DetallePedido> detallesPedido = new ArrayList<>();
 
     public Pedido() {}
 
-    public Pedido(LocalTime horaEstimadaFinalizacion, double total, double totalCosto, Estado estado, TipoEnvio tipoEnvio, FormaPago formaPago, LocalDate fechaPedido, Factura factura, List<DetallePedido> detallesPedido){
+    public Pedido(LocalTime horaEstimadaFinalizacion, double total, double totalCosto, Estado estado, TipoEnvio tipoEnvio, FormaPago formaPago, LocalDate fechaPedido){
         this.horaEstimadaFinalizacion = horaEstimadaFinalizacion;
         this.total = total;
         this.totalCosto = totalCosto;
@@ -30,8 +32,6 @@ public class Pedido extends Base {
         this.tipoEnvio = tipoEnvio;
         this.formaPago = formaPago;
         this.fechaPedido = fechaPedido;
-        this.factura = factura;
-        this.detallesPedido = new ArrayList<>();
     }
 
     public LocalTime getHoraEstimadaFinalizacion() {
@@ -98,11 +98,27 @@ public class Pedido extends Base {
         this.factura = factura;
     }
 
+    public Domicilio getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(Domicilio domicilio) {
+        this.domicilio = domicilio;
+    }
+
+    public Sucursal getSucursal() {
+        return sucursal;
+    }
+
+    public void setSucursal(Sucursal sucursal) {
+        this.sucursal = sucursal;
+    }
+
     public List<DetallePedido> getDetallesPedido() {
         return detallesPedido;
     }
 
-    public void setDetallesPedido(List<DetallePedido> detallesPedido) {
-        this.detallesPedido = detallesPedido;
+    public void agregarDetallesPedido(DetallePedido d) {
+        this.detallesPedido.add(d);
     }
 }

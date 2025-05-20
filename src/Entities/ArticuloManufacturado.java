@@ -1,13 +1,13 @@
 package Entities;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ArticuloManufacturado extends Articulo {
     private String descripcion;
     private int tiempoEstimadoMinutos;
     private String preparacion;
-    private List<ArticuloManufacturadoDetalle> articuloManufacturadoDetalles;
+    private ArrayList<ArticuloManufacturadoDetalle> articuloManufacturadoDetalles = new ArrayList<>();
+    private ArrayList<Categoria> categoria = new ArrayList<>();
 
     public ArticuloManufacturado() {}
 
@@ -16,7 +16,6 @@ public class ArticuloManufacturado extends Articulo {
         this.descripcion = descripcion;
         this.tiempoEstimadoMinutos = tiempoEstimadoMinutos;
         this.preparacion = preparacion;
-        this.articuloManufacturadoDetalles = new ArrayList<>();
     }
 
     public String getDescripcion() {
@@ -43,11 +42,18 @@ public class ArticuloManufacturado extends Articulo {
         this.preparacion = preparacion;
     }
 
-    public List<ArticuloManufacturadoDetalle> getArticuloManufacturadoDetalles() {
+    public ArrayList<ArticuloManufacturadoDetalle> getArticuloManufacturadoDetalles() {
         return articuloManufacturadoDetalles;
     }
 
-    public void setArticuloManufacturadoDetalles(List<ArticuloManufacturadoDetalle> articuloManufacturadoDetalles) {
-        this.articuloManufacturadoDetalles = articuloManufacturadoDetalles;
+    public void setArticuloManufacturadoDetalles(ArticuloManufacturadoDetalle a) {
+        this.articuloManufacturadoDetalles.add(a);
+    }
+    public ArrayList<Categoria> getCategoria() {
+        return categoria;
+    }
+
+    public void agregarCategoria(Categoria c) {
+        this.categoria.add(c);
     }
 }

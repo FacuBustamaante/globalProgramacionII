@@ -2,25 +2,20 @@ package Entities;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Sucursal extends Base{
     private String nombre;
     private LocalTime horarioApertura;
     private LocalTime horarioCierre;
     private Domicilio domicilio;
-    private List<Categoria> categorias;
-    private List<Promocion> promociones;
-    private List<Pedido> pedidos;
+    private ArrayList<Categoria> categorias = new ArrayList<>();
+    private ArrayList<Promocion> promociones = new ArrayList<>();
+    private ArrayList<Pedido> pedidos = new ArrayList<>();
 
-    public Sucursal(String nombre, LocalTime horarioApertura, LocalTime horarioCierre, Domicilio domicilio) {
+    public Sucursal(String nombre, LocalTime horarioApertura, LocalTime horarioCierre) {
         this.nombre = nombre;
         this.horarioApertura = horarioApertura;
         this.horarioCierre = horarioCierre;
-        this.domicilio = domicilio;
-        this.categorias = new ArrayList<>();
-        this.promociones = new ArrayList<>();
-        this.pedidos = new ArrayList<>();
     }
 
     public String getNombre() {
@@ -55,27 +50,27 @@ public class Sucursal extends Base{
         this.domicilio = domicilio;
     }
 
-    public List<Categoria> getCategorias() {
+    public ArrayList<Categoria> getCategorias() {
         return categorias;
     }
 
-    public void setCategorias(List<Categoria> categorias) {
-        this.categorias = categorias;
+    public void agregarCategorias(Categoria c) {
+        this.categorias.add(c);
     }
 
-    public List<Promocion> getPromociones() {
+    public ArrayList<Promocion> getPromociones() {
         return promociones;
     }
 
-    public void setPromociones(List<Promocion> promociones) {
-        this.promociones = promociones;
+    public void agregarPromociones(Promocion p) {
+        this.promociones.add(p);
     }
 
-    public List<Pedido> getPedidos() {
+    public ArrayList<Pedido> getPedidos() {
         return pedidos;
     }
 
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
+    public void agregarPedidos(Pedido p) {
+        this.pedidos.add(p);
     }
 }

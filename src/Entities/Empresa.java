@@ -1,5 +1,6 @@
 package Entities;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,13 +8,16 @@ public class Empresa extends Base {
     private String nombre;
     private String razonSocial;
     private int cuil;
-    private List<Sucursal> sucursales;
+    private ArrayList<Sucursal> sucursales = new ArrayList<>();
 
     public Empresa(String nombre, String razonSocial, int cuil) {
         this.nombre = nombre;
         this.razonSocial = razonSocial;
         this.cuil = cuil;
-        this.sucursales = new ArrayList<>();
+    }
+
+    public void agregarSucursal(Sucursal s){
+        this.sucursales.add(s);
     }
 
     public String getNombre() {
@@ -44,7 +48,7 @@ public class Empresa extends Base {
         return sucursales;
     }
 
-    public void setSucursales(List<Sucursal> sucursales) {
+    public void setSucursales(ArrayList<Sucursal> sucursales) {
         this.sucursales = sucursales;
     }
 }
