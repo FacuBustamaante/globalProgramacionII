@@ -4,8 +4,8 @@ import Enums.TipoPromocion;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Promocion extends Base {
     private String denominacion;
@@ -16,9 +16,9 @@ public class Promocion extends Base {
     private String descripcionDescuento;
     private double precioPromocional;
     private TipoPromocion tipoPromocion;
-    private List<Sucursal> sucursal;
-    private List<Imagen> imagenes;
-    private List<Articulo> articulos;
+    private Set<Sucursal> sucursal;
+    private Set<Imagen> imagenes;
+    private Set<Articulo> articulos;
 
     public Promocion() {}
 
@@ -31,9 +31,9 @@ public class Promocion extends Base {
         this.descripcionDescuento = descripcionDescuento;
         this.precioPromocional = precioPromocional;
         this.tipoPromocion = tipoPromocion;
-        this.sucursal = new ArrayList<>();
-        this.imagenes = new ArrayList<>();
-        this.articulos = new ArrayList<>();
+        this.sucursal = new HashSet<>();
+        this.imagenes = new HashSet<>();
+        this.articulos = new HashSet<>();
     }
 
     public String getDenominacion() {
@@ -100,27 +100,27 @@ public class Promocion extends Base {
         this.tipoPromocion = tipoPromocion;
     }
 
-    public List<Sucursal> getSucursal() {
+    public Set<Sucursal> getSucursal() {
         return sucursal;
     }
 
-    public void setSucursal(List<Sucursal> sucursal) {
+    public void setSucursal(Set<Sucursal> sucursal) {
         this.sucursal = sucursal;
     }
 
-    public List<Imagen> getImagenes() {
+    public Set<Imagen> getImagenes() {
         return imagenes;
     }
 
-    public void setImagenes(List<Imagen> imagenes) {
+    public void setImagenes(Set<Imagen> imagenes) {
         this.imagenes = imagenes;
     }
 
-    public List<Articulo> getArticulos() {
+    public Set<Articulo> getArticulos() {
         return articulos;
     }
 
-    public void setArticulos(List<Articulo> articulos) {
+    public void setArticulos(Set<Articulo> articulos) {
         this.articulos = articulos;
     }
 }

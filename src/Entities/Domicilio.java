@@ -1,15 +1,15 @@
 package Entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Domicilio extends Base {
     private String calle;
     private int numero;
     private int cp;
     private Localidad localidad;
-    private List<Pedido> pedidos;
-    private List<Cliente> clientes;
+    private Set<Pedido> pedidos;
+    private Set<Cliente> clientes;
 
     public Domicilio(String calle, int numero, int cp, Localidad localidad){
         super();
@@ -17,8 +17,8 @@ public class Domicilio extends Base {
         this.numero = numero;
         this.cp = cp;
         this.localidad = localidad;
-        this.pedidos = new ArrayList<>();
-        this.clientes = new ArrayList<>();
+        this.pedidos = new HashSet<>();
+        this.clientes = new HashSet<>();
     }
 
     public String getCalle() {
@@ -52,13 +52,13 @@ public class Domicilio extends Base {
     public void setLocalidad(Localidad localidad) {
         this.localidad = localidad;
     }
-    public List<Pedido> getPedidos() {
+    public Set<Pedido> getPedidos() {
         return pedidos;
     }
-    public void setPedidos(List<Pedido> pedidos) {
+    public void setPedidos(Set<Pedido> pedidos) {
         this.pedidos = pedidos;
     }
-    public List<Cliente> getClientes() {
+    public Set<Cliente> getClientes() {
         return clientes;
     }
 }

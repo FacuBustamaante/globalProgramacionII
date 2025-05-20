@@ -1,8 +1,8 @@
 package Entities;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Cliente extends Base {
     private String nombre;
@@ -12,8 +12,8 @@ public class Cliente extends Base {
     private LocalDate fechaNacimiento;
     private Imagen imagen;
     private Usuario usuario;
-    private List<Pedido> pedidos;
-    private List<Domicilio> domicilios;
+    private Set<Pedido> pedidos;
+    private Set<Domicilio> domicilios;
 
     public Cliente(){}
 
@@ -23,8 +23,8 @@ public class Cliente extends Base {
         this.telefono = telefono;
         this.email = email;
         this.fechaNacimiento = fechaNacimiento;
-        this.pedidos = new ArrayList<>();
-        this.domicilios = new ArrayList<>();
+        this.pedidos = new HashSet<>();
+        this.domicilios = new HashSet<>();
     }
 
     public String getNombre() {
@@ -83,19 +83,19 @@ public class Cliente extends Base {
         this.usuario = usuario;
     }
 
-    public List<Pedido> getPedidos() {
+    public Set<Pedido> getPedidos() {
         return pedidos;
     }
 
-    public void setPedidos(List<Pedido> pedidos) {
+    public void setPedidos(Set<Pedido> pedidos) {
         this.pedidos = pedidos;
     }
 
-    public List<Domicilio> getDomicilios() {
+    public Set<Domicilio> getDomicilios() {
         return domicilios;
     }
 
-    public void setDomicilios(List<Domicilio> domicilios) {
+    public void setDomicilios(Set<Domicilio> domicilios) {
         this.domicilios = domicilios;
     }
 }

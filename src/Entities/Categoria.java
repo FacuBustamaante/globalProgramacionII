@@ -1,21 +1,21 @@
 package Entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Categoria extends Base {
     private String denominacion;
-    private List<Sucursal> sucursal;
-    private List<Articulo> articulos;
-    private ArrayList<Categoria> subcategorias;
+    private Set<Sucursal> sucursal;
+    private Set<Articulo> articulos;
+    private HashSet<Categoria> subcategorias;
     private Categoria padre;
 
     public Categoria() {}
 
     public Categoria(String denominacion) {
         this.denominacion = denominacion;
-        this.sucursal = new ArrayList<>();
-        this.articulos = new ArrayList<>();
+        this.sucursal = new HashSet<>();
+        this.articulos = new HashSet<>();
     }
 
     public String getDenominacion() {
@@ -26,19 +26,19 @@ public class Categoria extends Base {
         this.denominacion = denominacion;
     }
 
-    public List<Sucursal> getSucursal() {
+    public Set<Sucursal> getSucursal() {
         return sucursal;
     }
 
-    public void setSucursal(List<Sucursal> sucursal) {
+    public void setSucursal(Set<Sucursal> sucursal) {
         this.sucursal = sucursal;
     }
 
-    public List<Articulo> getArticulos() {
+    public Set<Articulo> getArticulos() {
         return articulos;
     }
 
-    public void setArticulos(List<Articulo> articulos) {
+    public void setArticulos(Set<Articulo> articulos) {
         this.articulos = articulos;
     }
 
@@ -50,11 +50,11 @@ public class Categoria extends Base {
         this.padre = padre;
     }
 
-    public ArrayList<Categoria> getSubcategorias() {
+    public HashSet<Categoria> getSubcategorias() {
         return subcategorias;
     }
 
-    public void setSubcategorias(ArrayList<Categoria> subcategorias) {
+    public void setSubcategorias(HashSet<Categoria> subcategorias) {
         this.subcategorias = subcategorias;
     }
 

@@ -1,13 +1,13 @@
 package Entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ArticuloManufacturado extends Articulo {
     private String descripcion;
     private int tiempoEstimadoMinutos;
     private String preparacion;
-    private List<ArticuloManufacturadoDetalle> articuloManufacturadoDetalles;
+    private Set<ArticuloManufacturadoDetalle> articuloManufacturadoDetalles;
 
     public ArticuloManufacturado() {}
 
@@ -16,7 +16,7 @@ public class ArticuloManufacturado extends Articulo {
         this.descripcion = descripcion;
         this.tiempoEstimadoMinutos = tiempoEstimadoMinutos;
         this.preparacion = preparacion;
-        this.articuloManufacturadoDetalles = new ArrayList<>();
+        this.articuloManufacturadoDetalles = new HashSet<>();
     }
 
     public String getDescripcion() {
@@ -43,11 +43,11 @@ public class ArticuloManufacturado extends Articulo {
         this.preparacion = preparacion;
     }
 
-    public List<ArticuloManufacturadoDetalle> getArticuloManufacturadoDetalles() {
+    public Set<ArticuloManufacturadoDetalle> getArticuloManufacturadoDetalles() {
         return articuloManufacturadoDetalles;
     }
 
-    public void setArticuloManufacturadoDetalles(List<ArticuloManufacturadoDetalle> articuloManufacturadoDetalles) {
+    public void setArticuloManufacturadoDetalles(Set<ArticuloManufacturadoDetalle> articuloManufacturadoDetalles) {
         this.articuloManufacturadoDetalles = articuloManufacturadoDetalles;
     }
 }

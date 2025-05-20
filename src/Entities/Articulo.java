@@ -1,14 +1,14 @@
 package Entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 abstract class Articulo extends Base {
     protected String denominacion;
     protected double precioVenta;
     protected Imagen imagen;
     protected UnidadMedida unidadMedida;
-    protected List<Promocion> promociones;
+    protected Set<Promocion> promociones;
 
     public Articulo(){}
 
@@ -23,7 +23,7 @@ abstract class Articulo extends Base {
         this.precioVenta = precioVenta;
         this.imagen = imagen;
         this.unidadMedida = unidadMedida;
-        this.promociones = new ArrayList<>();
+        this.promociones = new HashSet<>();
     }
 
     public String getDenominacion() {
@@ -50,10 +50,10 @@ abstract class Articulo extends Base {
     public void setUnidadMedida(UnidadMedida unidadMedida) {
         this.unidadMedida = unidadMedida;
     }
-    public List<Promocion> getPromociones() {
+    public Set<Promocion> getPromociones() {
         return promociones;
     }
-    public void setPromociones(List<Promocion> promociones) {
+    public void setPromociones(Set<Promocion> promociones) {
         this.promociones = promociones;
     }
 }

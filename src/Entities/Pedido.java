@@ -6,8 +6,8 @@ import Enums.TipoEnvio;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Pedido extends Base {
     private LocalTime horaEstimadaFinalizacion;
@@ -18,11 +18,11 @@ public class Pedido extends Base {
     private FormaPago formaPago;
     private LocalDate fechaPedido;
     private Factura factura;
-    private List<DetallePedido> detallesPedido;
+    private Set<DetallePedido> detallesPedido;
 
     public Pedido() {}
 
-    public Pedido(LocalTime horaEstimadaFinalizacion, double total, double totalCosto, Estado estado, TipoEnvio tipoEnvio, FormaPago formaPago, LocalDate fechaPedido, Factura factura, List<DetallePedido> detallesPedido){
+    public Pedido(LocalTime horaEstimadaFinalizacion, double total, double totalCosto, Estado estado, TipoEnvio tipoEnvio, FormaPago formaPago, LocalDate fechaPedido, Factura factura, Set<DetallePedido> detallesPedido){
         this.horaEstimadaFinalizacion = horaEstimadaFinalizacion;
         this.total = total;
         this.totalCosto = totalCosto;
@@ -31,7 +31,7 @@ public class Pedido extends Base {
         this.formaPago = formaPago;
         this.fechaPedido = fechaPedido;
         this.factura = factura;
-        this.detallesPedido = new ArrayList<>();
+        this.detallesPedido = new HashSet<>();
     }
 
     public LocalTime getHoraEstimadaFinalizacion() {
@@ -98,11 +98,11 @@ public class Pedido extends Base {
         this.factura = factura;
     }
 
-    public List<DetallePedido> getDetallesPedido() {
+    public Set<DetallePedido> getDetallesPedido() {
         return detallesPedido;
     }
 
-    public void setDetallesPedido(List<DetallePedido> detallesPedido) {
+    public void setDetallesPedido(Set<DetallePedido> detallesPedido) {
         this.detallesPedido = detallesPedido;
     }
 }

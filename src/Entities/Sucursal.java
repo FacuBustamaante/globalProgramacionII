@@ -1,27 +1,37 @@
 package Entities;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Sucursal extends Base{
     private String nombre;
     private LocalTime horarioApertura;
     private LocalTime horarioCierre;
     private Domicilio domicilio;
-    private List<Categoria> categorias;
-    private List<Promocion> promociones;
-    private List<Pedido> pedidos;
+    private Set<Categoria> categorias;
+    private Set<Promocion> promociones;
+    private Set<Pedido> pedidos;
+    private Empresa empresa;
+
 
     public Sucursal(String nombre, LocalTime horarioApertura, LocalTime horarioCierre, Domicilio domicilio) {
         this.nombre = nombre;
         this.horarioApertura = horarioApertura;
         this.horarioCierre = horarioCierre;
         this.domicilio = domicilio;
-        this.categorias = new ArrayList<>();
-        this.promociones = new ArrayList<>();
-        this.pedidos = new ArrayList<>();
+        this.categorias = new HashSet<>();
+        this.promociones = new HashSet<>();
+        this.pedidos = new HashSet<>();
     }
+
+    public Sucursal() {
+        this.categorias = new HashSet<>();
+        this.promociones =new HashSet<>();
+        this.pedidos = new HashSet<>();
+    }
+
+
 
     public String getNombre() {
         return nombre;
@@ -55,27 +65,43 @@ public class Sucursal extends Base{
         this.domicilio = domicilio;
     }
 
-    public List<Categoria> getCategorias() {
+    public Set<Categoria> getCategorias() {
         return categorias;
     }
 
-    public void setCategorias(List<Categoria> categorias) {
+    public void setCategorias(Set<Categoria> categorias) {
         this.categorias = categorias;
     }
 
-    public List<Promocion> getPromociones() {
+    public Set<Promocion> getPromociones() {
         return promociones;
     }
 
-    public void setPromociones(List<Promocion> promociones) {
+    public void setPromociones(Set<Promocion> promociones) {
         this.promociones = promociones;
     }
 
-    public List<Pedido> getPedidos() {
+    public Set<Pedido> getPedidos() {
         return pedidos;
     }
 
-    public void setPedidos(List<Pedido> pedidos) {
+    public void setPedidos(Set<Pedido> pedidos) {
         this.pedidos = pedidos;
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        // Si ya hay una empresa asignada distinta, removemos esta sucursal de esa empresa
+        if (this.empresa != null && this.empresa != empresa) {
+            this.empresa.getSucursales().remove(this);
+        }
+        this.empresa = empresa;
+        // Si la nueva empresa no tiene esta sucursal, la agregamos
+        if (empresa != null && !empresa.getSucursales().contains(this)) {
+            empresa.getSucursales().add(this);
+        }
     }
 }

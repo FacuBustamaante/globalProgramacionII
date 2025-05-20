@@ -11,5 +11,4 @@ public class Pais extends Base{
     public String getNombre() {
         return nombre;
     }
-    public void setNombre(String nombre) {}
 }

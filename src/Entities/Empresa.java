@@ -1,20 +1,25 @@
 package Entities;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Empresa extends Base {
     private String nombre;
     private String razonSocial;
     private int cuil;
-    private List<Sucursal> sucursales;
+    private Set<Sucursal> sucursales;
 
     public Empresa(String nombre, String razonSocial, int cuil) {
         this.nombre = nombre;
         this.razonSocial = razonSocial;
         this.cuil = cuil;
-        this.sucursales = new ArrayList<>();
+        this.sucursales = new HashSet<>();
     }
+
+    public Empresa() {
+        this.sucursales = new HashSet<>();
+    }
+
 
     public String getNombre() {
         return nombre;
@@ -40,11 +45,11 @@ public class Empresa extends Base {
         this.cuil = cuil;
     }
 
-    public List<Sucursal> getSucursales() {
+    public Set<Sucursal> getSucursales() {
         return sucursales;
     }
 
-    public void setSucursales(List<Sucursal> sucursales) {
+    public void setSucursales(Set<Sucursal> sucursales) {
         this.sucursales = sucursales;
     }
 }
