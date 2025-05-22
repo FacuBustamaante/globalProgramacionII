@@ -5,7 +5,6 @@ import Enums.TipoPromocion;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Promocion extends Base {
     private String denominacion;
@@ -16,9 +15,9 @@ public class Promocion extends Base {
     private String descripcionDescuento;
     private double precioPromocional;
     private TipoPromocion tipoPromocion;
-    private List<Sucursal> sucursal;
-    private List<Imagen> imagenes;
-    private List<Articulo> articulos;
+    private ArrayList<Sucursal> sucursales = new ArrayList<>();
+    private ArrayList<Imagen> imagenes = new ArrayList<>();
+    private ArrayList<Articulo> articulos = new ArrayList<>();
 
     public Promocion() {}
 
@@ -31,9 +30,7 @@ public class Promocion extends Base {
         this.descripcionDescuento = descripcionDescuento;
         this.precioPromocional = precioPromocional;
         this.tipoPromocion = tipoPromocion;
-        this.sucursal = new ArrayList<>();
-        this.imagenes = new ArrayList<>();
-        this.articulos = new ArrayList<>();
+        
     }
 
     public String getDenominacion() {
@@ -100,27 +97,27 @@ public class Promocion extends Base {
         this.tipoPromocion = tipoPromocion;
     }
 
-    public List<Sucursal> getSucursal() {
-        return sucursal;
+    public ArrayList<Sucursal> getSucursales() {
+        return sucursales;
     }
 
-    public void setSucursal(List<Sucursal> sucursal) {
-        this.sucursal = sucursal;
+    public void agregarSucursal(Sucursal s){
+        this.sucursales.add(s);
     }
 
-    public List<Imagen> getImagenes() {
+    public ArrayList<Imagen> getImagenes() {
         return imagenes;
     }
 
-    public void setImagenes(List<Imagen> imagenes) {
-        this.imagenes = imagenes;
+    public void setImagenes(Imagen i) {
+        this.imagenes.add(i);
     }
 
-    public List<Articulo> getArticulos() {
+    public ArrayList<Articulo> getArticulos() {
         return articulos;
     }
 
-    public void setArticulos(List<Articulo> articulos) {
-        this.articulos = articulos;
+    public void setArticulos(Articulo a) {
+        this.articulos.add(a);
     }
 }

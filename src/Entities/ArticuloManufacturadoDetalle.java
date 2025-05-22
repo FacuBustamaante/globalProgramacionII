@@ -2,6 +2,7 @@ package Entities;
 
 public class ArticuloManufacturadoDetalle extends Base {
     private int cantidad;
+    private ArticuloInsumo articuloInsumo;
 
     public ArticuloManufacturadoDetalle() {}
 
@@ -13,5 +14,13 @@ public class ArticuloManufacturadoDetalle extends Base {
     }
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public ArticuloInsumo getArticuloInsumo() {
+        return articuloInsumo;
+    }
+
+    public void setArticuloInsumo(ArticuloInsumo articuloInsumo) {
+        this.articuloInsumo = articuloInsumo;
     }
 }

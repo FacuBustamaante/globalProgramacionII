@@ -6,7 +6,7 @@ public class Localidad extends Base {
 
     public Localidad() {}
 
-    public Localidad(String nombre, Provincia provincia) {
+    public Localidad(String nombre) {
         this.nombre = nombre;
         this.provincia = provincia;
     }

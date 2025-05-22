@@ -1,24 +1,19 @@
 package Entities;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class Domicilio extends Base {
+
+public class Domicilio extends Base{
     private String calle;
     private int numero;
     private int cp;
     private Localidad localidad;
-    private List<Pedido> pedidos;
-    private List<Cliente> clientes;
 
-    public Domicilio(String calle, int numero, int cp, Localidad localidad){
-        super();
+
+    public Domicilio(String calle, int numero, int cp){
         this.calle = calle;
         this.numero = numero;
         this.cp = cp;
-        this.localidad = localidad;
-        this.pedidos = new ArrayList<>();
-        this.clientes = new ArrayList<>();
     }
 
     public String getCalle() {
@@ -51,14 +46,5 @@ public class Domicilio extends Base {
 
     public void setLocalidad(Localidad localidad) {
         this.localidad = localidad;
-    }
-    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
-    public List<Cliente> getClientes() {
-        return clientes;
     }
 }
