@@ -3,6 +3,7 @@ package Entities;
 import Enums.FormaPago;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Factura extends Base {
     private LocalDate fechaFacturacion;
@@ -12,6 +13,7 @@ public class Factura extends Base {
     private String mpPaymentType;
     private FormaPago formaPago;
     private double totalVenta;
+    private Pedido pedido;
 
     public Factura() {}
 
@@ -79,5 +81,13 @@ public class Factura extends Base {
 
     public void setTotalVenta(double totalVenta) {
         this.totalVenta = totalVenta;
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
     }
 }

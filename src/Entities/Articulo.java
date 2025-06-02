@@ -8,7 +8,7 @@ abstract class Articulo extends Base {
     protected double precioVenta;
     protected ArrayList<Imagen> imagenenes;
     protected UnidadMedida unidadMedida;
-    protected ArrayList<Promocion> promociones = new ArrayList<>();
+
 
     public Articulo(){}
 
@@ -42,11 +42,5 @@ abstract class Articulo extends Base {
     }
     public void setUnidadMedida(UnidadMedida unidadMedida) {
         this.unidadMedida = unidadMedida;
-    }
-    public ArrayList<Promocion> getPromociones() {
-        return promociones;
-    }
-    public void agregarPromociones(Promocion p) {
-        this.promociones.add(p);
     }
 }

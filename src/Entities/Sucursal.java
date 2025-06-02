@@ -8,6 +8,7 @@ public class Sucursal extends Base{
     private LocalTime horarioApertura;
     private LocalTime horarioCierre;
     private Domicilio domicilio;
+    private Empresa empresa;
     private ArrayList<Categoria> categorias = new ArrayList<>();
     private ArrayList<Promocion> promociones = new ArrayList<>();
     private ArrayList<Pedido> pedidos = new ArrayList<>();
@@ -72,5 +73,13 @@ public class Sucursal extends Base{
 
     public void agregarPedidos(Pedido p) {
         this.pedidos.add(p);
+    }
+
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 }
