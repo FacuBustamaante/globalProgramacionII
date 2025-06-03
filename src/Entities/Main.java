@@ -23,6 +23,7 @@ public class Main {
 
         Sucursal s1 = new Sucursal("Buen Sabor Guaymallen", LocalTime.of(8,00), LocalTime.of(20,00));
         s1.setDomicilio(d1);
+        s1.setEmpresa(e);
 
         //Declaro un articulo, con sudetalle e insumo
         ArticuloManufacturado am1 = new ArticuloManufacturado("Helado", 5000.00, "Helado de chocolate", 180, "Mezcle los ingredientes y refrigere");
@@ -82,6 +83,8 @@ public class Main {
 
         DetallePedido detalle1 = new DetallePedido(2,200.00, ai1);
         Factura factura1 = new Factura(LocalDate.of(2025,5,20), 123456, 654321, "123132", "dinero_cuenta",FormaPago.MERCADOPAGO, 200.00);
+        factura1.setPedido(pedido1);
+
 
         pedido1.setFactura(factura1);
         pedido1.agregarDetallesPedido(detalle1);
