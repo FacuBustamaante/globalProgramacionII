@@ -1,15 +1,16 @@
 package Entities;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
+
+@SuperBuilder
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class UnidadMedida extends Base{
     private String denominacion;
-
-    public UnidadMedida(){}
-
-    public UnidadMedida(String denominacion){
-        this.denominacion = denominacion;
-    }
-    public String getDenominacion() {
-        return denominacion;
-    }
-    public void setDenominacion(String denominacion) {}
 }

@@ -1,15 +1,16 @@
 package Entities;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
+
+@SuperBuilder
+@Getter
+@Setter
+@NoArgsConstructor
+@ToString
 public class Imagen extends Base {
     private String denominacion;
-
-    public Imagen() {}
-
-    public Imagen(String denominacion) {
-        this.denominacion = denominacion;
-    }
-    public String getDenominacion() {
-        return denominacion;
-    }
-    public void setDenominacion(String denominacion) {}
 }

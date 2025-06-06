@@ -10,88 +10,199 @@ import java.time.LocalTime;
 
 public class Main {
     public static void main(String[] args) {
-        //Declaro empresa, sucursal y direccion
-        Empresa e = new Empresa("Buen Sabor", "PYME",123546789);
+        //Empresa
+        Empresa empresa = Empresa.builder()
+                .nombre("Empresa 1")
+                .razonSocial("EmpresaFalsa")
+                .cuil(27384712)
+                .build();
 
-        Pais p1 = new Pais("Argentina");
-        Provincia pr1= new Provincia("Mendoza");
-        pr1.setPais(p1);
-        Localidad l1 = new Localidad("Guaymallen");
-        l1.setProvincia(pr1);
-        Domicilio d1 = new Domicilio("Gutierrez", 1000, 5519);
-        d1.setLocalidad(l1);
+        Sucursal sucursalPalmares = Sucursal.builder()
+                .nombre("Sucursal Palmares")
+                .horarioApertura(LocalTime.of(8, 30))
+                .horarioCierre(LocalTime.of(16,30))
+                .build();
 
-        Sucursal s1 = new Sucursal("Buen Sabor Guaymallen", LocalTime.of(8,00), LocalTime.of(20,00));
-        s1.setDomicilio(d1);
-        s1.setEmpresa(e);
+        //Sucursales
+        Sucursal sucursalGodoyCruz = Sucursal.builder()
+                .nombre("Sucursal Godoy Cruz")
+                .horarioApertura(LocalTime.of(8, 30))
+                .horarioCierre(LocalTime.of(16,30))
+                .build();
 
-        //Declaro un articulo, con sudetalle e insumo
-        ArticuloManufacturado am1 = new ArticuloManufacturado("Helado", 5000.00, "Helado de chocolate", 180, "Mezcle los ingredientes y refrigere");
-        ArticuloManufacturadoDetalle amd1 = new ArticuloManufacturadoDetalle(100);
-        ArticuloInsumo ai1 = new ArticuloInsumo("Helado", 2000.00, 55, 200, false);
-        amd1.setArticuloInsumo(ai1);
+        //Domicilios
+        Domicilio domicilioGodoyCruz = Domicilio.builder()
+                        .calle("Calle 1")
+                        .numero(16)
+                        .cp(5500)
+                        .build();
 
-        UnidadMedida u1 = new UnidadMedida("cm3");
+        Domicilio domicilioPalmares = Domicilio.builder()
+                .calle("Calle 2")
+                .numero(25)
+                .cp(5500)
+                .build();
 
-        am1.setUnidadMedida(u1);
-        ai1.setUnidadMedida(u1);
+        Domicilio domicilioCliente = Domicilio.builder()
+                .calle("Calle 45")
+                .numero(230)
+                .cp(5539)
+                .build();
 
-        //Creo una promocion
+        //Pais
+        Pais pais = new Pais("Argentina");
 
-        Promocion prom1 = new Promocion("descuento",
-                LocalDate.of(2025,5,20),
-                LocalDate.of(2025,6,20),
-                LocalTime.of(8,00), LocalTime.of(20,00),
-                "50%",
-                100.00,
-                TipoPromocion.PROMOCION1);
-        prom1.setArticulos(ai1);
+        //Provincia
+        Provincia provincia = Provincia.builder()
+                .nombre("Mendoza")
+                .build();
+        provincia.setPais(pais);
 
-        //Imagen
-        Imagen img1 = new Imagen("Foto Helado de Chocolate");
-        prom1.setImagenes(img1);
+        //Localidades
+        Localidad godoyCruz = Localidad.builder()
+                .nombre("Godoy Cruz")
+                .build();
+        godoyCruz.setProvincia(provincia);
 
-        //Categoria
-        Categoria cpadre = new Categoria("Alimento");
-        Categoria c1 = new Categoria("Heladeo");
-        c1.setPadre(cpadre);
+        Localidad palmares = Localidad.builder()
+                .nombre("Palmares")
+                .build();
+        palmares.setProvincia(provincia);
 
-        s1.agregarCategorias(c1);
-        ai1.agregarCategoria(c1);
-        am1.agregarCategoria(c1);
+        //ArticuloManufacturado
+        ArticuloManufacturado manufacturado = ArticuloManufacturado.builder()
+                .descripcion("En preparacion")
+                .tiempoEstimadoMinutos(35)
+                .preparacion("Manual")
+                .build();
 
-        //Cliente
+        //ArticuloManufacturadoDetalle
+        ArticuloManufacturadoDetalle manufacturadoDetalle = ArticuloManufacturadoDetalle.builder()
+                .cantidad(1)
+                .build();
+        manufacturadoDetalle.setArticuloManufacturado(manufacturado);
 
-        Usuario user1 = new Usuario("0001","AmoLosHelados");
-        Imagen img2 = new Imagen("Foto de perfil");
+        //Articulos
+        ArticuloInsumo articuloLimpieza = ArticuloInsumo.builder()
+                .denominacion("Detergente")
+                .precioVenta(4500.0)
+                .precioCompra(3500.0)
+                .stockActual(12)
+                .stockMaximo(30)
+                .esParaElaborar(false)
+                .build();
+        articuloLimpieza.agregarArticuloManufacturadoDetalle(manufacturadoDetalle);
 
-        Cliente cliente1 = new Cliente("Juan", "Garcia","2612512216","juan@example.com", LocalDate.of(1999,9,30));
-        cliente1.setImagen(img2);
-        cliente1.setUsuario(user1);
-        //Cliente comparte domicilio con heladeria
-        cliente1.agregarDomicilios(d1);
+        ArticuloInsumo articuloAlmacen = ArticuloInsumo.builder()
+                .build();
 
+        //Detalle Pedido
+        DetallePedido detallePedido = DetallePedido.builder()
+                .cantidad(15)
+                .subTotal(10500)
+                .build();
+                //Articulo
 
-        //Pedido
-        Pedido pedido1 = new Pedido(LocalTime.of(10,30),
-                200.00,
-                100.00,
-                Estado.PREPARACION,
-                TipoEnvio.DELIVERY,
-                FormaPago.MERCADOPAGO,
-                LocalDate.of(2025,5,20));
+        //Pedidos
+        Pedido pedido1 = Pedido.builder()
+                .horaEstimadaFinalizacion(LocalTime.of(14,0))
+                .total(50000)
+                .totalCosto(35000)
+                .fechaPedido(LocalDate.of(2025, 2, 12))
+                .estado(Estado.PENDIENTE)
+                .formaPago(FormaPago.MERCADOPAGO)
+                .tipoEnvio(TipoEnvio.DELIVERY)
+                .build();
+        pedido1.setDomicilio(domicilioCliente);
 
-        DetallePedido detalle1 = new DetallePedido(2,200.00, ai1);
-        Factura factura1 = new Factura(LocalDate.of(2025,5,20), 123456, 654321, "123132", "dinero_cuenta",FormaPago.MERCADOPAGO, 200.00);
+        //Factura
+        Factura factura1 = Factura.builder()
+                .fechaFacturacion(LocalDate.of(2025,02,1))
+                .mpPaymentId(2931)
+                .mpMerchantOrderId(9586)
+                .mpPreferenceId("ja287f")
+                .mpPaymentType("Tarjeta")
+                .totalVenta(150000.0)
+                .formaPago(FormaPago.MERCADOPAGO)
+                .build();
         factura1.setPedido(pedido1);
 
+        //Imagenes
+        Imagen imagenUsuario = Imagen.builder()
+                .denominacion("foto de perfil")
+                .build();
+        Imagen imagenArticulo = Imagen.builder()
+                .denominacion("foto del articulo")
+                .build();
 
-        pedido1.setFactura(factura1);
-        pedido1.agregarDetallesPedido(detalle1);
-        pedido1.setDomicilio(d1);
-        pedido1.setSucursal(s1);
+        //Usuario
+        Usuario usuarioAdmin = Usuario.builder()
+                .auth0Id("ao2s24kjg81")
+                .username("Facu22")
+                .build();
 
-        cliente1.agregarPedidos(pedido1);
+        //Clientes
+        Cliente cliente1 = Cliente.builder()
+                        .nombre("Facundo")
+                        .apellido("Bustamante")
+                        .telefono("85736214")
+                        .email("correo@correo.com")
+                        .fechaNacimiento(LocalDate.of(1996, 12, 22))
+                        //imagen, domicilio
+                        .build();
+        cliente1.setUsuario(usuarioAdmin);
+        cliente1.agregarDomicilio(domicilioCliente);
+        cliente1.setImagen(imagenUsuario);
+
+        //Categorias
+        Categoria categoriaLimpieza = Categoria.builder()
+                .denominacion("Limpieza")
+                .build();
+                //articulos
+
+        Categoria categoriaAlmacen = Categoria.builder()
+                .denominacion("Almacen")
+                .build();
+                //articulos
+
+        //Promociones
+        Promocion promocion1 = Promocion.builder()
+                .denominacion("Hot Sale")
+                        .fechaDesde(LocalDate.of(2025,1,1))
+                        .fechaHasta(LocalDate.of(2025,2,1))
+                        .fechaDesdeHora(LocalTime.of(8,30))
+                        .fechaHastaHora(LocalTime.of(12,30))
+                        .descripcionDescuento("15% off")
+                        .precioPromocional(30000.0)
+                        .tipoPromocion(TipoPromocion.PROMOCION1)
+                        .build();
+        promocion1.agregarImagen(imagenUsuario);
+
+
+        //Asignaciones
+        domicilioGodoyCruz.setLocalidad(godoyCruz);
+        sucursalGodoyCruz.setDomicilio(domicilioGodoyCruz);
+        domicilioPalmares.setLocalidad(palmares);
+        sucursalPalmares.setDomicilio(domicilioPalmares);
+        domicilioCliente.setLocalidad(palmares);
+        sucursalPalmares.agregarPedido(pedido1);
+        pedido1.agregarDetallesPedido(detallePedido);
+        empresa.agregarSucursal(sucursalPalmares);
+        empresa.agregarSucursal(sucursalGodoyCruz);
+        sucursalPalmares.agregarCategoria(categoriaLimpieza);
+        sucursalPalmares.agregarCategoria(categoriaAlmacen);
+        sucursalPalmares.agregarPromocion(promocion1);
+        categoriaLimpieza.agregarArticulo(articuloLimpieza);
+        detallePedido.setArticulo(articuloLimpieza);
+
+        //Visualización
+        System.out.println("----------------SUCURSALES-----------------");
+        System.out.println(empresa.getSucursales());
+
+        System.out.println("----------------USUARIOS-----------------");
+        System.out.println(usuarioAdmin);
+
+        System.out.println("----------------FACTURA-----------------");
+        System.out.println(factura1);
     }
-
 }
