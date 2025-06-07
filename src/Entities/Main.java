@@ -4,6 +4,8 @@ import Enums.Estado;
 import Enums.FormaPago;
 import Enums.TipoEnvio;
 import Enums.TipoPromocion;
+import data.IUsuarioDAO;
+import data.UsuarioDAO;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -204,5 +206,17 @@ public class Main {
 
         System.out.println("----------------FACTURA-----------------");
         System.out.println(factura1);
+
+        //Conexión a base de datos local con la clase Usuario
+        //Agregar usuario
+        IUsuarioDAO UsuaruarioDAO = new UsuarioDAO();
+        boolean usuario_agregado = UsuaruarioDAO.agregarUsuario(usuarioAdmin);
+
+        if (usuario_agregado){
+            System.out.println("Se agrego el usuario correctamente");
+        }else {
+            System.out.println("No se pudo agregar el usuario");
+        }
+        
     }
 }
