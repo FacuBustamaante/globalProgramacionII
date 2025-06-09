@@ -25,10 +25,8 @@ public class Pedido extends Base {
     private FormaPago formaPago;
     private TipoEnvio tipoEnvio;
     private Factura factura;
-    @Builder.Default
-    private Domicilio domicilio = new Domicilio();
-    @Builder.Default
-    private Sucursal sucursal = new Sucursal();
+    private Domicilio domicilio;
+    private Sucursal sucursal;
     @Builder.Default
     private ArrayList<DetallePedido> detallesPedido = new ArrayList<>();
 

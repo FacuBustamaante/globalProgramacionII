@@ -8,15 +8,10 @@ import java.util.ArrayList;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString(exclude = "categoria")
+@ToString
 public class ArticuloManufacturado extends Articulo {
     private String descripcion;
     private int tiempoEstimadoMinutos;
     private String preparacion;
-    @Builder.Default
-    private ArrayList<Categoria> categoria = new ArrayList<>();
-
-    public void agregarCategoria(Categoria categoria) {
-        this.categoria.add(categoria);
-    }
+    private ArticuloManufacturadoDetalle detalle;
 }

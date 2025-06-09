@@ -11,6 +11,5 @@ import lombok.experimental.SuperBuilder;
 @ToString
 public class Localidad extends Base {
     private String nombre;
-    @Builder.Default
-    private Provincia provincia = new Provincia();
+    private Provincia provincia;
 }

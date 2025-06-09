@@ -14,16 +14,4 @@ public class ArticuloInsumo extends Articulo {
     private int stockActual;
     private int stockMaximo;
     private boolean esParaElaborar;
-    @Builder.Default
-    private ArrayList<ArticuloManufacturadoDetalle> articuloManufacturadoDetalles = new ArrayList<>();
-    @Builder.Default
-    private ArrayList<Categoria> categorias = new ArrayList<>();
-
-    public void agregarArticuloManufacturadoDetalle(ArticuloManufacturadoDetalle articuloManufacturadoDetalle) {
-        this.articuloManufacturadoDetalles.add(articuloManufacturadoDetalle);
-    }
-
-    public void agregarCategoria(Categoria categoria) {
-        this.categorias.add(categoria);
-    }
 }

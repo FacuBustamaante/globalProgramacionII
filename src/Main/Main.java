@@ -1,5 +1,6 @@
-package Entities;
+package Main;
 
+import Entities.*;
 import Enums.Estado;
 import Enums.FormaPago;
 import Enums.TipoEnvio;
@@ -80,7 +81,6 @@ public class Main {
         ArticuloManufacturadoDetalle manufacturadoDetalle = ArticuloManufacturadoDetalle.builder()
                 .cantidad(1)
                 .build();
-        manufacturadoDetalle.setArticuloManufacturado(manufacturado);
 
         //Articulos
         ArticuloInsumo articuloLimpieza = ArticuloInsumo.builder()
@@ -91,7 +91,6 @@ public class Main {
                 .stockMaximo(30)
                 .esParaElaborar(false)
                 .build();
-        articuloLimpieza.agregarArticuloManufacturadoDetalle(manufacturadoDetalle);
 
         ArticuloInsumo articuloAlmacen = ArticuloInsumo.builder()
                 .build();

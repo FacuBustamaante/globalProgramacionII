@@ -13,6 +13,7 @@ import java.util.Set;
 @ToString(exclude = {"subcategorias", "sucursal"})
 public class Categoria extends Base {
     private String denominacion;
+    private Categoria padre;
     @Builder.Default
     private ArrayList<Sucursal> sucursal = new ArrayList<>();
     @Builder.Default
