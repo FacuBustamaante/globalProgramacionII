@@ -11,7 +11,10 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @NoArgsConstructor
 @ToString
-public class Usuario extends Base{
+
+public class Usuario{
     private String auth0Id;
     private String username;
 }
+
+
